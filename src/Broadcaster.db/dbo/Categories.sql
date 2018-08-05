@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[Categories](
+	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Name] [char](50) NULL,
+	[Activ] [int] NULL,
+	[rowguid] [uniqueidentifier] ROWGUIDCOL  NOT NULL DEFAULT (newid()),
+ CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF, FILLFACTOR = 90) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [index_50099219] ON [dbo].[Categories] 
+(
+	[rowguid] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF, FILLFACTOR = 90) ON [PRIMARY]
+GO
